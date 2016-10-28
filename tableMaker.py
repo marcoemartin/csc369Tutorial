@@ -1,10 +1,8 @@
 def parseFile(workFile, instructionsDic, memDic):
-
 	for addrLine in workFile:
 		inst = addrLine.split(",")
 		pageNum = int(inst[0],16)/ 4096
-		localAddr = int(inst[0],16)% 4096
-		newEntry = hex(localAddr)
+		newEntry = hex(pageNum)
 
 		if inst[1][0] in ['I']:
 			if newEntry in instructionsDic:
